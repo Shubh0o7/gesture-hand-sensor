@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a237e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3949ab;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="phase1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="phase2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f3e5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e1bee7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="phase3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c8e6c9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="phase4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff3e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe0b2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="phase5Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fce4ec;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8bbd9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#37474f"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#fafafa"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="70" fill="url(#headerGrad)"/>
+  <text x="600" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">GESTURE-CONTROLLED ROBOT SYSTEM ARCHITECTURE</text>
+  
+  <!-- Phase 1: Perception -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="url(#phase1Grad)" stroke="#1565c0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="40" rx="10" fill="#1565c0"/>
+    <text x="100" y="27" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">PHASE 1: PERCEPTION</text>
+    
+    <!-- Webcam -->
+    <rect x="20" y="55" width="160" height="45" rx="5" fill="white" stroke="#1565c0" stroke-width="1"/>
+    <text x="100" y="75" font-family="Arial" font-size="11" fill="#1565c0" text-anchor="middle" font-weight="bold">📷 Webcam Input</text>
+    <text x="100" y="90" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">OpenCV VideoCapture</text>
+    
+    <!-- MediaPipe -->
+    <rect x="20" y="110" width="160" height="55" rx="5" fill="white" stroke="#1565c0" stroke-width="1"/>
+    <text x="100" y="130" font-family="Arial" font-size="11" fill="#1565c0" text-anchor="middle" font-weight="bold">✋ MediaPipe Hands</text>
+    <text x="100" y="145" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">21 3D Landmarks</text>
+    <text x="100" y="158" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">(X, Y, Z) Normalized</text>
+    
+    <!-- Data Collector -->
+    <rect x="20" y="175" width="160" height="45" rx="5" fill="white" stroke="#1565c0" stroke-width="1"/>
+    <text x="100" y="195" font-family="Arial" font-size="11" fill="#1565c0" text-anchor="middle" font-weight="bold">💾 Data Collector</text>
+    <text x="100" y="210" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">CSV/JSON Dataset</text>
+    
+    <!-- Files -->
+    <text x="100" y="245" font-family="monospace" font-size="8" fill="#37474f" text-anchor="middle">hand_tracker.py</text>
+    <text x="100" y="258" font-family="monospace" font-size="8" fill="#37474f" text-anchor="middle">data_collector.py</text>
+  </g>
+  
+  <!-- Arrow 1->2 -->
+  <line x1="260" y1="240" x2="300" y2="240" stroke="#37474f" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="280" y="225" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Landmarks</text>
+  
+  <!-- Phase 2: AI Model -->
+  <g transform="translate(310, 100)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="url(#phase2Grad)" stroke="#7b1fa2" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="40" rx="10" fill="#7b1fa2"/>
+    <text x="100" y="27" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">PHASE 2: AI MODEL</text>
+    
+    <!-- Transformer -->
+    <rect x="20" y="55" width="160" height="70" rx="5" fill="white" stroke="#7b1fa2" stroke-width="1"/>
+    <text x="100" y="75" font-family="Arial" font-size="11" fill="#7b1fa2" text-anchor="middle" font-weight="bold">🧠 Transformer Encoder</text>
+    <text x="100" y="90" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">30-60 Frame Sequences</text>
+    <text x="100" y="103" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Multi-Head Attention</text>
+    <text x="100" y="116" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">PyTorch Implementation</text>
+    
+    <!-- Metrics -->
+    <rect x="20" y="135" width="160" height="55" rx="5" fill="white" stroke="#7b1fa2" stroke-width="1"/>
+    <text x="100" y="155" font-family="Arial" font-size="11" fill="#7b1fa2" text-anchor="middle" font-weight="bold">📊 Performance</text>
+    <text x="100" y="170" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Latency &lt; 300ms</text>
+    <text x="100" y="183" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Prediction Stability</text>
+    
+    <!-- Training -->
+    <rect x="20" y="200" width="160" height="35" rx="5" fill="white" stroke="#7b1fa2" stroke-width="1"/>
+    <text x="100" y="220" font-family="Arial" font-size="11" fill="#7b1fa2" text-anchor="middle" font-weight="bold">☁️ Google Colab GPU</text>
+    
+    <!-- Files -->
+    <text x="100" y="255" font-family="monospace" font-size="8" fill="#37474f" text-anchor="middle">transformer_model.py</text>
+    <text x="100" y="268" font-family="monospace" font-size="8" fill="#37474f" text-anchor="middle">train_transformer.ipynb</text>
+  </g>
+  
+  <!-- Arrow 2->3 -->
+  <line x1="520" y1="240" x2="560" y2="240" stroke="#37474f" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="540" y="225" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Gesture</text>
+  
+  <!-- Phase 3: NLP -->
+  <g transform="translate(570, 100)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="url(#phase3Grad)" stroke="#388e3c" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="40" rx="10" fill="#388e3c"/>
+    <text x="100" y="27" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">PHASE 3: NLP</text>
+    
+    <!-- SpaCy -->
+    <rect x="20" y="55" width="160" height="55" rx="5" fill="white" stroke="#388e3c" stroke-width="1"/>
+    <text x="100" y="75" font-family="Arial" font-size="11" fill="#388e3c" text-anchor="middle" font-weight="bold">🗣️ SpaCy Parser</text>
+    <text x="100" y="90" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Gesture → Command</text>
+    <text x="100" y="103" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Action Decomposition</text>
+    
+    <!-- Intent -->
+    <rect x="20" y="120" width="160" height="55" rx="5" fill="white" stroke="#388e3c" stroke-width="1"/>
+    <text x="100" y="140" font-family="Arial" font-size="11" fill="#388e3c" text-anchor="middle" font-weight="bold">🎯 Intent Mapping</text>
+    <text x="100" y="155" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Stateful Mode</text>
+    <text x="100" y="168" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Context-Aware</text>
+    
+    <!-- Output -->
+    <rect x="20" y="185" width="160" height="50" rx="5" fill="white" stroke="#388e3c" stroke-width="1"/>
+    <text x="100" y="205" font-family="Arial" font-size="11" fill="#388e3c" text-anchor="middle" font-weight="bold">📋 Robot Command</text>
+    <text x="100" y="220" font-family="monospace" font-size="8" fill="#666" text-anchor="middle">{action, speed, direction}</text>
+    
+    <!-- Files -->
+    <text x="100" y="255" font-family="monospace" font-size="8" fill="#37474f" text-anchor="middle">gesture_nlp.py</text>
+  </g>
+  
+  <!-- Arrow 3->4 -->
+  <line x1="780" y1="200" x2="820" y2="200" stroke="#37474f" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="800" y="185" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Command</text>
+  
+  <!-- Arrow 3->5 -->
+  <line x1="780" y1="280" x2="820" y2="280" stroke="#37474f" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Phase 4: Blockchain -->
+  <g transform="translate(830, 100)">
+    <rect x="0" y="0" width="160" height="140" rx="10" fill="url(#phase4Grad)" stroke="#f57c00" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="160" height="35" rx="10" fill="#f57c00"/>
+    <text x="80" y="23" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">PHASE 4: BLOCKCHAIN</text>
+    
+    <!-- Ganache -->
+    <rect x="15" y="45" width="130" height="40" rx="5" fill="white" stroke="#f57c00" stroke-width="1"/>
+    <text x="80" y="62" font-family="Arial" font-size="10" fill="#f57c00" text-anchor="middle" font-weight="bold">🔗 Ganache + Solidity</text>
+    <text x="80" y="77" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Local Ethereum Testnet</text>
+    
+    <!-- Audit -->
+    <rect x="15" y="95" width="130" height="35" rx="5" fill="white" stroke="#f57c00" stroke-width="1"/>
+    <text x="80" y="112" font-family="Arial" font-size="10" fill="#f57c00" text-anchor="middle" font-weight="bold">📜 Immutable Audit</text>
+    <text x="80" y="125" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Command Provenance</text>
+  </g>
+  
+  <!-- Phase 5: Simulation -->
+  <g transform="translate(830, 260)">
+    <rect x="0" y="0" width="160" height="120" rx="10" fill="url(#phase5Grad)" stroke="#c2185b" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="160" height="35" rx="10" fill="#c2185b"/>
+    <text x="80" y="23" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">PHASE 5: SIMULATION</text>
+    
+    <!-- Webots -->
+    <rect x="15" y="45" width="130" height="40" rx="5" fill="white" stroke="#c2185b" stroke-width="1"/>
+    <text x="80" y="62" font-family="Arial" font-size="10" fill="#c2185b" text-anchor="middle" font-weight="bold">🤖 Webots + TurtleBot3</text>
+    <text x="80" y="77" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">3D Robot Simulation</text>
+    
+    <!-- Motors -->
+    <rect x="15" y="95" width="130" height="20" rx="5" fill="white" stroke="#c2185b" stroke-width="1"/>
+    <text x="80" y="109" font-family="Arial" font-size="9" fill="#c2185b" text-anchor="middle">Motor Control API</text>
+  </g>
+  
+  <!-- Files for Phase 4 & 5 -->
+  <text x="910" y="405" font-family="monospace" font-size="8" fill="#37474f" text-anchor="middle">CommandLogger.sol</text>
+  <text x="910" y="418" font-family="monospace" font-size="8" fill="#37474f" text-anchor="middle">blockchain_bridge.py</text>
+  <text x="910" y="431" font-family="monospace" font-size="8" fill="#37474f" text-anchor="middle">webots_controller.py</text>
+  
+  <!-- Data Flow Legend -->
+  <g transform="translate(50, 420)">
+    <rect x="0" y="0" width="700" height="100" rx="10" fill="#eceff1" stroke="#90a4ae" stroke-width="1"/>
+    <text x="350" y="25" font-family="Arial" font-size="14" font-weight="bold" fill="#37474f" text-anchor="middle">DATA FLOW PIPELINE</text>
+    
+    <text x="30" y="55" font-family="Arial" font-size="11" fill="#37474f">1. Webcam captures hand gestures at 30 FPS</text>
+    <text x="30" y="72" font-family="Arial" font-size="11" fill="#37474f">2. MediaPipe extracts 21 3D landmarks per frame</text>
+    <text x="350" y="55" font-family="Arial" font-size="11" fill="#37474f">3. Transformer processes 30-60 frame sequences</text>
+    <text x="350" y="72" font-family="Arial" font-size="11" fill="#37474f">4. NLP converts gesture to robot command</text>
+    <text x="30" y="89" font-family="Arial" font-size="11" fill="#37474f">5. Blockchain logs command for audit trail</text>
+    <text x="350" y="89" font-family="Arial" font-size="11" fill="#37474f">6. Webots executes movement in simulation</text>
+  </g>
+  
+  <!-- Tech Stack -->
+  <g transform="translate(50, 540)">
+    <rect x="0" y="0" width="700" height="70" rx="10" fill="#e8eaf6" stroke="#5c6bc0" stroke-width="1"/>
+    <text x="350" y="22" font-family="Arial" font-size="14" font-weight="bold" fill="#3949ab" text-anchor="middle">TECHNOLOGY STACK</text>
+    <text x="30" y="48" font-family="Arial" font-size="10" fill="#37474f">Python 3.10+ | OpenCV | MediaPipe | PyTorch | SpaCy | Web3.py | Solidity | Ganache | Webots</text>
+    <text x="30" y="62" font-family="Arial" font-size="10" fill="#666">Training: Google Colab (GPU/TPU) | Development: VS Code | Version Control: Git</text>
+  </g>
+  
+  <!-- Integration Module -->
+  <g transform="translate(780, 540)">
+    <rect x="0" y="0" width="180" height="70" rx="10" fill="#fff8e1" stroke="#ffc107" stroke-width="2" filter="url(#shadow)"/>
+    <text x="90" y="22" font-family="Arial" font-size="12" font-weight="bold" fill="#f57f17" text-anchor="middle">🔧 INTEGRATION</text>
+    <text x="90" y="42" font-family="monospace" font-size="10" fill="#37474f" text-anchor="middle">main.py</text>
+    <text x="90" y="58" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">Orchestrates all phases</text>
+  </g>
+  
+  <!-- Footer -->
+  <rect x="0" y="760" width="1200" height="40" fill="#263238"/>
+  <text x="600" y="785" font-family="Arial" font-size="12" fill="#b0bec5" text-anchor="middle">Gesture-Controlled Robot Project | PG Level Implementation | © 2026 Shubham Shukla</text>
+</svg>

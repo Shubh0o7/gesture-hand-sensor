@@ -1,0 +1,1550 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R] /Count 14 >>
+endobj
+
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 4 0 R >>
+endobj
+
+4 0 obj
+<< /Length 2446 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(GESTURE-CONTROLLED ROBOT SYSTEM) Tj
+T*
+(Comprehensive Project Documentation) Tj
+T*
+(PG-Level Implementation Guide) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(TABLE OF CONTENTS) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(1. Executive Summary) Tj
+T*
+(2. System Architecture Overview) Tj
+T*
+(3. Phase 1: Environment and Perception Setup) Tj
+T*
+(4. Phase 2: Advanced AI and Sequence Modeling) Tj
+T*
+(5. Phase 3: Linguistic Interpretation \\(NLP\\)) Tj
+T*
+(6. Phase 4: Decentralized Security \\(Blockchain\\)) Tj
+T*
+(7. Phase 5: Virtual Validation \\(Simulation\\)) Tj
+T*
+(8. System Integration) Tj
+T*
+(9. Installation and Setup Guide) Tj
+T*
+(10. Architecture Diagrams Reference) Tj
+T*
+(11. Performance Metrics and Testing) Tj
+T*
+(12. Future Enhancements) Tj
+T*
+(13. Appendix: Complete File Structure) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(1. EXECUTIVE SUMMARY) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(This document provides comprehensive documentation for a gesture-controlled) Tj
+T*
+(robot) Tj
+T*
+(system designed for PG-level academic projects. The system integrates five major) Tj
+T*
+(components:) Tj
+T*
+() Tj
+T*
+(• Computer Vision \\(MediaPipe\\) for hand gesture recognition) Tj
+T*
+(• Deep Learning \\(Transformer Encoder\\) for temporal sequence modeling) Tj
+T*
+(• Natural Language Processing \\(SpaCy\\) for gesture-to-command translation) Tj
+T*
+(• Blockchain \\(Ethereum/Ganache\\) for immutable audit trails) Tj
+T*
+(• Robot Simulation \\(Webots\\) for virtual validation) Tj
+T*
+() Tj
+T*
+(The system enables users to control a simulated TurtleBot3 robot using hand) Tj
+T*
+(gestures captured via webcam, with all commands logged on a local blockchain) Tj
+T*
+(for security and provenance tracking.) Tj
+T*
+() Tj
+T*
+(Key Features:) Tj
+T*
+(- Real-time gesture recognition \\(<300ms latency\\)) Tj
+T*
+(- 5-10 distinct gesture classes \\(forward, backward, left, right, stop, etc.\\)) Tj
+T*
+(- Immutable command audit trail via smart contracts) Tj
+T*
+(- 3D robot simulation with realistic physics) Tj
+T*
+(- Modular, extensible architecture) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 6 0 R >>
+endobj
+
+6 0 obj
+<< /Length 2771 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(2. SYSTEM ARCHITECTURE OVERVIEW) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(The system follows a pipeline architecture with five distinct phases:) Tj
+T*
+() Tj
+T*
+(┌─────────────┐    ┌─────────�) Tj
+T*
+(��───┐    ┌─────────────┐) Tj
+T*
+(│   PHASE 1   │───▶│   PHASE 2   │───▶│   PHASE 3  ) Tj
+T*
+(│) Tj
+T*
+(│ Perception  │    │  AI Model   │    │    NLP      │) Tj
+T*
+(│  \\(OpenCV +  │    │\\(Transformer\\)│    │  \\(SpaCy\\)    │) Tj
+T*
+(│  MediaPipe\\) │    │             │    │             │) Tj
+T*
+(└─────────────┘    └─────────�) Tj
+T*
+(��───┘    └─────────────┘) Tj
+T*
+(                                            │) Tj
+T*
+(                          ┌─────────────────) Tj
+T*
+(┼─────────────────┐) Tj
+T*
+(                          ▼                                   ▼) Tj
+T*
+(                   ┌─────────────┐               ) Tj
+T*
+(     ┌─────────────┐) Tj
+T*
+(                   │   PHASE 4   │                     │   PHASE 5   │) Tj
+T*
+(                   │ Blockchain  │                     │ Simulation  │) Tj
+T*
+(                   │  \\(Ganache\\)  │                     │ ) Tj
+T*
+(\\(Webots\\)   │) Tj
+T*
+(                   └─────────────┘               ) Tj
+T*
+(     └─────────────┘) Tj
+T*
+() Tj
+T*
+(Data Flow:) Tj
+T*
+(1. Webcam captures hand gestures at 30 FPS) Tj
+T*
+(2. MediaPipe extracts 21 3D hand landmarks per frame) Tj
+T*
+(3. Landmarks are buffered into 30-60 frame sequences) Tj
+T*
+(4. Transformer Encoder classifies the gesture sequence) Tj
+T*
+(5. NLP module converts gesture class to robot command) Tj
+T*
+(6. Command is logged on blockchain for audit trail) Tj
+T*
+(7. Robot executes the command in Webots simulation) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(3. PHASE 1: ENVIRONMENT AND PERCEPTION SETUP) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(3.1 Software Stack Installation) Tj
+T*
+(-------------------------------) Tj
+T*
+() Tj
+T*
+(Required Python version: 3.10+) Tj
+T*
+() Tj
+T*
+(Install dependencies:) Tj
+T*
+(```bash) Tj
+T*
+(pip install opencv-python mediapipe torch torchvision web3 spacy) Tj
+T*
+(python -m spacy download en_core_web_sm) Tj
+ET
+endstream
+endobj
+
+7 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 8 0 R >>
+endobj
+
+8 0 obj
+<< /Length 1954 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(```) Tj
+T*
+() Tj
+T*
+(3.2 Perception Layer Implementation) Tj
+T*
+(-----------------------------------) Tj
+T*
+() Tj
+T*
+(File: src/hand_tracker.py) Tj
+T*
+() Tj
+T*
+(The HandTracker class uses MediaPipe Hands to detect and track hand landmarks) Tj
+T*
+(in real-time. Key features:) Tj
+T*
+() Tj
+T*
+(• Detects up to 2 hands simultaneously) Tj
+T*
+(• Extracts 21 3D landmarks per hand \\(X, Y, Z coordinates\\)) Tj
+T*
+(• Normalizes coordinates for scale and position invariance) Tj
+T*
+(• Provides confidence scores for detection quality) Tj
+T*
+() Tj
+T*
+(Landmark Structure:) Tj
+T*
+(- Landmarks 0-4: Thumb \\(CMC, MCP, IP, TIP\\)) Tj
+T*
+(- Landmarks 5-8: Index finger) Tj
+T*
+(- Landmarks 9-12: Middle finger) Tj
+T*
+(- Landmarks 13-16: Ring finger) Tj
+T*
+(- Landmarks 17-20: Pinky finger) Tj
+T*
+() Tj
+T*
+(Normalization Process:) Tj
+T*
+(1. Center landmarks around wrist \\(landmark 0\\)) Tj
+T*
+(2. Scale by maximum distance from wrist) Tj
+T*
+(3. Result: Position and scale-invariant features) Tj
+T*
+() Tj
+T*
+(3.3 Data Acquisition) Tj
+T*
+(--------------------) Tj
+T*
+() Tj
+T*
+(File: src/data_collector.py) Tj
+T*
+() Tj
+T*
+(The DataCollector class records gesture sequences for training:) Tj
+T*
+() Tj
+T*
+(• Captures landmark sequences at 30 FPS) Tj
+T*
+(• Saves to CSV format for easy processing) Tj
+T*
+(• Supports multiple gesture classes) Tj
+T*
+(• Includes timestamp and metadata) Tj
+T*
+() Tj
+T*
+(Dataset Format:) Tj
+T*
+(- Each row: frame_id, timestamp, gesture_label, 63 landmark values \\(21 x 3\\)) Tj
+T*
+(- Recommended: 100+ samples per gesture class) Tj
+T*
+(- Sequence length: 30-60 frames \\(1-2 seconds\\)) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(4. PHASE 2: ADVANCED AI AND SEQUENCE MODELING) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(4.1 Transformer Encoder Architecture) Tj
+ET
+endstream
+endobj
+
+9 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 10 0 R >>
+endobj
+
+10 0 obj
+<< /Length 1721 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(------------------------------------) Tj
+T*
+() Tj
+T*
+(File: src/transformer_model.py) Tj
+T*
+() Tj
+T*
+(The GestureTransformer class implements a Transformer Encoder for temporal) Tj
+T*
+(sequence classification. Architecture:) Tj
+T*
+() Tj
+T*
+(Input Layer:) Tj
+T*
+(- Input: [batch_size, seq_len, 63] \\(landmark features\\)) Tj
+T*
+(- Linear projection: 63 → d_model \\(128 or 256\\)) Tj
+T*
+() Tj
+T*
+(Positional Encoding:) Tj
+T*
+(- Sinusoidal position embeddings) Tj
+T*
+(- Encodes temporal order of frames) Tj
+T*
+() Tj
+T*
+(Transformer Encoder:) Tj
+T*
+(- Multi-Head Self-Attention \\(8 heads\\)) Tj
+T*
+(- Feed-Forward Network \\(d_ff = 4 × d_model\\)) Tj
+T*
+(- Layer Normalization + Residual Connections) Tj
+T*
+(- Dropout \\(p=0.1\\) for regularization) Tj
+T*
+(- Stack of 4-6 encoder layers) Tj
+T*
+() Tj
+T*
+(Classification Head:) Tj
+T*
+(- Global Average Pooling over sequence) Tj
+T*
+(- Linear layer: d_model → num_classes) Tj
+T*
+(- Softmax activation for probabilities) Tj
+T*
+() Tj
+T*
+(Hyperparameters:) Tj
+T*
+(- d_model: 128 or 256) Tj
+T*
+(- num_heads: 8) Tj
+T*
+(- num_layers: 4-6) Tj
+T*
+(- d_ff: 512 or 1024) Tj
+T*
+(- dropout: 0.1) Tj
+T*
+(- learning_rate: 1e-4 \\(Adam optimizer\\)) Tj
+T*
+() Tj
+T*
+(4.2 Training on Google Colab) Tj
+T*
+(----------------------------) Tj
+T*
+() Tj
+T*
+(File: notebooks/train_transformer.ipynb) Tj
+T*
+() Tj
+T*
+(The Jupyter notebook provides:) Tj
+T*
+(- Data loading and preprocessing) Tj
+T*
+(- Model definition and initialization) Tj
+T*
+(- Training loop with validation) Tj
+T*
+(- Learning rate scheduling \\(CosineAnnealingLR\\)) Tj
+T*
+(- Early stopping \\(patience=10\\)) Tj
+T*
+(- Model checkpointing) Tj
+T*
+(- Performance visualization) Tj
+T*
+() Tj
+ET
+endstream
+endobj
+
+11 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 12 0 R >>
+endobj
+
+12 0 obj
+<< /Length 2061 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(Training Configuration:) Tj
+T*
+(- Batch size: 32) Tj
+T*
+(- Epochs: 100 \\(with early stopping\\)) Tj
+T*
+(- Loss function: CrossEntropyLoss) Tj
+T*
+(- Optimizer: AdamW with weight decay) Tj
+T*
+(- GPU: NVIDIA T4 \\(free on Colab\\)) Tj
+T*
+() Tj
+T*
+(4.3 Performance Metrics) Tj
+T*
+(-----------------------) Tj
+T*
+() Tj
+T*
+(PG-Level Requirements:) Tj
+T*
+(1. Processing Time: < 300ms per prediction) Tj
+T*
+(2. Accuracy: > 95% on validation set) Tj
+T*
+(3. Prediction Stability: No flickering labels) Tj
+T*
+(4. Confusion Matrix: Balanced across classes) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(5. PHASE 3: LINGUISTIC INTERPRETATION \\(NLP\\)) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(5.1 Gesture-to-Command Translation) Tj
+T*
+(----------------------------------) Tj
+T*
+() Tj
+T*
+(File: src/gesture_nlp.py) Tj
+T*
+() Tj
+T*
+(The GestureNLP class converts gesture classifications into robot commands:) Tj
+T*
+() Tj
+T*
+(Gesture Mapping:) Tj
+T*
+(- "forward" → {"action": "move", "speed": 1.0, "direction": "forward"}) Tj
+T*
+(- "backward" → {"action": "move", "speed": 1.0, "direction": "backward"}) Tj
+T*
+(- "left" → {"action": "turn", "speed": 0.5, "direction": "left"}) Tj
+T*
+(- "right" → {"action": "turn", "speed": 0.5, "direction": "right"}) Tj
+T*
+(- "stop" → {"action": "stop", "speed": 0.0, "direction": "none"}) Tj
+T*
+() Tj
+T*
+(5.2 Action Decomposition) Tj
+T*
+(------------------------) Tj
+T*
+() Tj
+T*
+(Complex gestures can be decomposed into sequences:) Tj
+T*
+(- "slow_forward" → {"action": "move", "speed": 0.5, "direction": "forward"}) Tj
+T*
+(- "fast_turn_left" → {"action": "turn", "speed": 1.0, "direction": "left"}) Tj
+T*
+() Tj
+T*
+(5.3 Stateful Intent Mapping) Tj
+T*
+(---------------------------) Tj
+T*
+() Tj
+T*
+(The system maintains state to influence command interpretation:) Tj
+T*
+() Tj
+T*
+(States:) Tj
+T*
+(- IDLE: Robot is stationary) Tj
+T*
+(- MOVING: Robot is in motion) Tj
+ET
+endstream
+endobj
+
+13 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 14 0 R >>
+endobj
+
+14 0 obj
+<< /Length 1592 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(- TURNING: Robot is rotating) Tj
+T*
+() Tj
+T*
+(State Transitions:) Tj
+T*
+(- IDLE + "forward" → MOVING) Tj
+T*
+(- MOVING + "stop" → IDLE) Tj
+T*
+(- MOVING + "left" → TURNING) Tj
+T*
+() Tj
+T*
+(Context-Aware Commands:) Tj
+T*
+(- "forward" while MOVING → increase speed) Tj
+T*
+(- "forward" while IDLE → start moving) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(6. PHASE 4: DECENTRALIZED SECURITY \\(BLOCKCHAIN\\)) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(6.1 Local Blockchain Setup) Tj
+T*
+(--------------------------) Tj
+T*
+() Tj
+T*
+(Ganache Configuration:) Tj
+T*
+(- Network: localhost:8545) Tj
+T*
+(- Chain ID: 1337) Tj
+T*
+(- Gas Limit: 6721975) Tj
+T*
+(- Accounts: 10 test accounts with 100 ETH each) Tj
+T*
+() Tj
+T*
+(Installation:) Tj
+T*
+(```bash) Tj
+T*
+(npm install -g ganache-cli) Tj
+T*
+(ganache-cli) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(6.2 Smart Contract) Tj
+T*
+(------------------) Tj
+T*
+() Tj
+T*
+(File: contracts/CommandLogger.sol) Tj
+T*
+() Tj
+T*
+(The CommandLogger contract provides:) Tj
+T*
+() Tj
+T*
+(Functions:) Tj
+T*
+(- logCommand\\(bytes32 cmdHash, string userId, uint256 timestamp\\)) Tj
+T*
+(- getCommandCount\\(\\) → uint256) Tj
+T*
+(- getCommand\\(uint256 index\\) → CommandEntry) Tj
+T*
+(- verifyCommand\\(bytes32 cmdHash\\) → bool) Tj
+T*
+() Tj
+T*
+(Events:) Tj
+T*
+(- CommandLogged\\(bytes32 indexed cmdHash, address indexed user, uint256) Tj
+T*
+(timestamp\\)) Tj
+T*
+() Tj
+T*
+(Data Structure:) Tj
+T*
+(```solidity) Tj
+ET
+endstream
+endobj
+
+15 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 16 0 R >>
+endobj
+
+16 0 obj
+<< /Length 1660 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(struct CommandEntry {) Tj
+T*
+(    bytes32 commandHash;) Tj
+T*
+(    string userId;) Tj
+T*
+(    uint256 timestamp;) Tj
+T*
+(    address sender;) Tj
+T*
+(}) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(6.3 Blockchain Bridge) Tj
+T*
+(---------------------) Tj
+T*
+() Tj
+T*
+(File: src/blockchain_bridge.py) Tj
+T*
+() Tj
+T*
+(The BlockchainBridge class connects Python to Ethereum:) Tj
+T*
+() Tj
+T*
+(Features:) Tj
+T*
+(- Web3.py HTTP provider connection) Tj
+T*
+(- Contract deployment and interaction) Tj
+T*
+(- Command hashing \\(SHA-256\\)) Tj
+T*
+(- Transaction signing and sending) Tj
+T*
+(- Event listening for confirmations) Tj
+T*
+() Tj
+T*
+(Usage:) Tj
+T*
+(```python) Tj
+T*
+(bridge = BlockchainBridge\\(\\)) Tj
+T*
+(bridge.connect\\("http://localhost:8545"\\)) Tj
+T*
+(bridge.deploy_contract\\(\\)) Tj
+T*
+(bridge.log_command\\(command_dict, user_id\\)) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(6.4 Security Benefits) Tj
+T*
+(---------------------) Tj
+T*
+() Tj
+T*
+(1. Immutable Audit Trail: Commands cannot be altered after logging) Tj
+T*
+(2. Command Provenance: Prove who issued each command) Tj
+T*
+(3. Timestamp Verification: Exact time of each action) Tj
+T*
+(4. Decentralized Security: No single point of failure) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(7. PHASE 5: VIRTUAL VALIDATION \\(SIMULATION\\)) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(7.1 Webots Setup) Tj
+T*
+(----------------) Tj
+T*
+() Tj
+T*
+(Download: https://cyberbotics.com/) Tj
+T*
+() Tj
+T*
+(Robot Model: TurtleBot3 Burger) Tj
+T*
+(- Differential drive \\(2 wheels\\)) Tj
+ET
+endstream
+endobj
+
+17 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 18 0 R >>
+endobj
+
+18 0 obj
+<< /Length 1605 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(- LIDAR sensor \\(optional\\)) Tj
+T*
+(- Camera sensor \\(optional\\)) Tj
+T*
+() Tj
+T*
+(7.2 Controller Implementation) Tj
+T*
+(-----------------------------) Tj
+T*
+() Tj
+T*
+(File: src/webots_controller.py) Tj
+T*
+() Tj
+T*
+(The WebotsController class interfaces with the simulation:) Tj
+T*
+() Tj
+T*
+(Motor Control:) Tj
+T*
+(- Left wheel velocity: -10 to +10 rad/s) Tj
+T*
+(- Right wheel velocity: -10 to +10 rad/s) Tj
+T*
+() Tj
+T*
+(Movement Commands:) Tj
+T*
+(- Forward: Both wheels positive, equal speed) Tj
+T*
+(- Backward: Both wheels negative, equal speed) Tj
+T*
+(- Turn Left: Right wheel faster than left) Tj
+T*
+(- Turn Right: Left wheel faster than right) Tj
+T*
+(- Stop: Both wheels zero) Tj
+T*
+() Tj
+T*
+(API Functions:) Tj
+T*
+(```python) Tj
+T*
+(controller = WebotsController\\(\\)) Tj
+T*
+(controller.move_forward\\(speed=1.0\\)) Tj
+T*
+(controller.turn_left\\(speed=0.5\\)) Tj
+T*
+(controller.stop\\(\\)) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(7.3 Simulation World) Tj
+T*
+(--------------------) Tj
+T*
+() Tj
+T*
+(Create a Webots world file with:) Tj
+T*
+(- TurtleBot3 robot) Tj
+T*
+(- Arena with walls) Tj
+T*
+(- Obstacles \\(optional\\)) Tj
+T*
+(- Target markers \\(optional\\)) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(8. SYSTEM INTEGRATION) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(8.1 Main Orchestrator) Tj
+T*
+(---------------------) Tj
+T*
+() Tj
+T*
+(File: src/main.py) Tj
+T*
+() Tj
+T*
+(The GestureRobotSystem class integrates all components:) Tj
+T*
+() Tj
+ET
+endstream
+endobj
+
+19 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 20 0 R >>
+endobj
+
+20 0 obj
+<< /Length 2165 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(```python) Tj
+T*
+(class GestureRobotSystem:) Tj
+T*
+(    def __init__\\(self\\):) Tj
+T*
+(        self.hand_tracker = HandTracker\\(\\)) Tj
+T*
+(        self.model = GestureTransformer\\(\\)) Tj
+T*
+(        self.nlp = GestureNLP\\(\\)) Tj
+T*
+(        self.blockchain = BlockchainBridge\\(\\)) Tj
+T*
+(        self.robot = WebotsController\\(\\)) Tj
+T*
+(        self.frame_buffer = deque\\(maxlen=60\\)) Tj
+T*
+(    ) Tj
+T*
+(    def run\\(self\\):) Tj
+T*
+(        while True:) Tj
+T*
+(            # 1. Capture frame and extract landmarks) Tj
+T*
+(            frame = self.capture_frame\\(\\)) Tj
+T*
+(            landmarks = self.hand_tracker.process\\(frame\\)) Tj
+T*
+(            ) Tj
+T*
+(            # 2. Buffer landmarks) Tj
+T*
+(            self.frame_buffer.append\\(landmarks\\)) Tj
+T*
+(            ) Tj
+T*
+(            # 3. Predict gesture when buffer is full) Tj
+T*
+(            if len\\(self.frame_buffer\\) == 60:) Tj
+T*
+(                gesture = self.model.predict\\(self.frame_buffer\\)) Tj
+T*
+(                ) Tj
+T*
+(                # 4. Convert to command) Tj
+T*
+(                command = self.nlp.parse\\(gesture\\)) Tj
+T*
+(                ) Tj
+T*
+(                # 5. Log to blockchain) Tj
+T*
+(                self.blockchain.log_command\\(command\\)) Tj
+T*
+(                ) Tj
+T*
+(                # 6. Execute on robot) Tj
+T*
+(                self.robot.execute\\(command\\)) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(8.2 Processing Loop) Tj
+T*
+(-------------------) Tj
+T*
+() Tj
+T*
+(1. CAPTURE: Read webcam frame, extract landmarks, add to buffer) Tj
+T*
+(2. PREDICT: When buffer full \\(60 frames\\), run Transformer model) Tj
+T*
+(3. INTERPRET: NLP converts gesture class to robot command) Tj
+T*
+(4. LOG: Hash command and send to blockchain) Tj
+T*
+(5. EXECUTE: Send motor commands to Webots robot) Tj
+T*
+(6. LOOP: Repeat at 30 FPS) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(9. INSTALLATION AND SETUP GUIDE) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(9.1 Prerequisites) Tj
+T*
+(-----------------) Tj
+ET
+endstream
+endobj
+
+21 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 22 0 R >>
+endobj
+
+22 0 obj
+<< /Length 1326 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+() Tj
+T*
+(- Python 3.10 or higher) Tj
+T*
+(- Node.js \\(for Ganache\\)) Tj
+T*
+(- Webots simulator) Tj
+T*
+(- Webcam) Tj
+T*
+(- VS Code \\(recommended\\)) Tj
+T*
+() Tj
+T*
+(9.2 Step-by-Step Installation) Tj
+T*
+(-----------------------------) Tj
+T*
+() Tj
+T*
+(1. Clone or create project directory:) Tj
+T*
+(```bash) Tj
+T*
+(mkdir gesture_robot_project) Tj
+T*
+(cd gesture_robot_project) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(2. Create virtual environment:) Tj
+T*
+(```bash) Tj
+T*
+(python -m venv venv) Tj
+T*
+(source venv/bin/activate  # Linux/Mac) Tj
+T*
+(venv\\\\Scripts\\\\activate     # Windows) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(3. Install Python dependencies:) Tj
+T*
+(```bash) Tj
+T*
+(pip install opencv-python mediapipe torch torchvision web3 spacy py-solc-x) Tj
+T*
+(python -m spacy download en_core_web_sm) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(4. Install Ganache:) Tj
+T*
+(```bash) Tj
+T*
+(npm install -g ganache-cli) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(5. Download and install Webots from:) Tj
+T*
+(https://cyberbotics.com/) Tj
+T*
+() Tj
+T*
+(9.3 Running the System) Tj
+T*
+(----------------------) Tj
+T*
+() Tj
+T*
+(1. Start Ganache \\(Terminal 1\\):) Tj
+T*
+(```bash) Tj
+T*
+(ganache-cli) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(2. Start Webots with TurtleBot3 world) Tj
+T*
+() Tj
+T*
+(3. Run the main system \\(Terminal 2\\):) Tj
+T*
+(```bash) Tj
+ET
+endstream
+endobj
+
+23 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 24 0 R >>
+endobj
+
+24 0 obj
+<< /Length 1800 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(cd gesture_robot_project) Tj
+T*
+(python src/main.py) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(4. Show hand gestures to webcam:) Tj
+T*
+(- Open palm \\(✋\\) → Forward) Tj
+T*
+(- Closed fist \\(✊\\) → Stop) Tj
+T*
+(- Point left \\(👈\\) → Turn left) Tj
+T*
+(- Point right \\(👉\\) → Turn right) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(10. ARCHITECTURE DIAGRAMS REFERENCE) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(The following SVG diagrams are included in the blueprints/ directory:) Tj
+T*
+() Tj
+T*
+(1. system_architecture.svg) Tj
+T*
+(   - Complete system overview) Tj
+T*
+(   - All 5 phases with connections) Tj
+T*
+(   - Data flow visualization) Tj
+T*
+(   - Technology stack summary) Tj
+T*
+() Tj
+T*
+(2. transformer_architecture.svg) Tj
+T*
+(   - Detailed Transformer Encoder structure) Tj
+T*
+(   - Multi-Head Attention mechanism) Tj
+T*
+(   - Feed-Forward Network) Tj
+T*
+(   - Positional Encoding) Tj
+T*
+(   - Hyperparameters reference) Tj
+T*
+() Tj
+T*
+(3. blockchain_flow.svg) Tj
+T*
+(   - Python to Blockchain data flow) Tj
+T*
+(   - Web3.py bridge architecture) Tj
+T*
+(   - Smart contract structure) Tj
+T*
+(   - Immutable ledger visualization) Tj
+T*
+(   - Security benefits summary) Tj
+T*
+() Tj
+T*
+(4. data_pipeline.svg) Tj
+T*
+(   - End-to-end data transformation) Tj
+T*
+(   - Input/Output formats at each stage) Tj
+T*
+(   - Buffer and sequence handling) Tj
+T*
+(   - Data format specifications) Tj
+T*
+() Tj
+T*
+(5. integration_diagram.svg) Tj
+T*
+(   - main.py orchestration flow) Tj
+T*
+(   - Component interactions) Tj
+T*
+(   - Processing loop steps) Tj
+T*
+(   - File structure overview) Tj
+T*
+(   - Run commands reference) Tj
+T*
+() Tj
+ET
+endstream
+endobj
+
+25 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 26 0 R >>
+endobj
+
+26 0 obj
+<< /Length 1717 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(================================================================================) Tj
+T*
+(11. PERFORMANCE METRICS AND TESTING) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(11.1 Latency Requirements) Tj
+T*
+(-------------------------) Tj
+T*
+() Tj
+T*
+(Target: < 300ms end-to-end latency) Tj
+T*
+() Tj
+T*
+(Breakdown:) Tj
+T*
+(- Frame capture: ~33ms \\(30 FPS\\)) Tj
+T*
+(- Landmark extraction: ~20ms) Tj
+T*
+(- Model inference: ~50-100ms) Tj
+T*
+(- NLP processing: ~5ms) Tj
+T*
+(- Blockchain logging: ~50-100ms \\(async\\)) Tj
+T*
+(- Robot command: ~10ms) Tj
+T*
+() Tj
+T*
+(Total: ~170-270ms \\(within target\\)) Tj
+T*
+() Tj
+T*
+(11.2 Accuracy Metrics) Tj
+T*
+(---------------------) Tj
+T*
+() Tj
+T*
+(Target: > 95% classification accuracy) Tj
+T*
+() Tj
+T*
+(Evaluation:) Tj
+T*
+(- Train/Validation/Test split: 70/15/15) Tj
+T*
+(- Cross-validation: 5-fold) Tj
+T*
+(- Confusion matrix analysis) Tj
+T*
+(- Per-class precision/recall) Tj
+T*
+() Tj
+T*
+(11.3 Stability Testing) Tj
+T*
+(----------------------) Tj
+T*
+() Tj
+T*
+(Prediction Stability:) Tj
+T*
+(- No flickering between classes) Tj
+T*
+(- Consistent predictions for held gestures) Tj
+T*
+(- Smooth transitions between gestures) Tj
+T*
+() Tj
+T*
+(Test Protocol:) Tj
+T*
+(1. Hold each gesture for 5 seconds) Tj
+T*
+(2. Count prediction changes) Tj
+T*
+(3. Target: < 2 changes per 5 seconds) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(12. FUTURE ENHANCEMENTS) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(12.1 Short-term Improvements) Tj
+T*
+(----------------------------) Tj
+ET
+endstream
+endobj
+
+27 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 28 0 R >>
+endobj
+
+28 0 obj
+<< /Length 2184 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+() Tj
+T*
+(- Add more gesture classes \\(10-20\\)) Tj
+T*
+(- Implement two-hand gestures) Tj
+T*
+(- Add voice command integration) Tj
+T*
+(- Improve model accuracy with data augmentation) Tj
+T*
+() Tj
+T*
+(12.2 Medium-term Goals) Tj
+T*
+(----------------------) Tj
+T*
+() Tj
+T*
+(- Deploy to real robot hardware) Tj
+T*
+(- Add obstacle avoidance) Tj
+T*
+(- Implement path planning) Tj
+T*
+(- Create mobile app interface) Tj
+T*
+() Tj
+T*
+(12.3 Long-term Vision) Tj
+T*
+(---------------------) Tj
+T*
+() Tj
+T*
+(- Multi-user support) Tj
+T*
+(- Cloud-based model serving) Tj
+T*
+(- AR/VR integration) Tj
+T*
+(- Swarm robot control) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(13. APPENDIX: COMPLETE FILE STRUCTURE) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(gesture_robot_project/) Tj
+T*
+(├── src/) Tj
+T*
+(│   ├── hand_tracker.py      # Phase 1: MediaPipe hand detection) Tj
+T*
+(│   ├── data_collector.py    # Phase 1: Dataset recording) Tj
+T*
+(│   ├── transformer_model.py # Phase 2: Transformer Encoder) Tj
+T*
+(│   ├── gesture_nlp.py       # Phase 3: NLP command parser) Tj
+T*
+(│   ├── blockchain_bridge.py # Phase 4: Web3.py integration) Tj
+T*
+(│   ├── webots_controller.py # Phase 5: Robot control) Tj
+T*
+(│   └── main.py              # System integration) Tj
+T*
+(├── contracts/) Tj
+T*
+(│   └── CommandLogger.sol    # Phase 4: Solidity smart contract) Tj
+T*
+(├── notebooks/) Tj
+T*
+(│   └── train_transformer.ipynb  # Phase 2: Colab training notebook) Tj
+T*
+(├── blueprints/) Tj
+T*
+(│   ├── system_architecture.svg) Tj
+T*
+(│   ├── transformer_architecture.svg) Tj
+T*
+(│   ├── blockchain_flow.svg) Tj
+T*
+(│   ├── data_pipeline.svg) Tj
+T*
+(│   └── integration_diagram.svg) Tj
+T*
+(├── docs/) Tj
+T*
+(│   └── Gesture_Robot_Project_Documentation.pdf) Tj
+T*
+(├── data/                    # Training datasets \\(CSV\\)) Tj
+T*
+(├── models/                  # Saved model checkpoints) Tj
+ET
+endstream
+endobj
+
+29 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 31 0 R >> >> /MediaBox [0 0 612 792] /Contents 30 0 R >>
+endobj
+
+30 0 obj
+<< /Length 693 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 50 742 Tm
+14 TL
+(├── simulation/              # Webots world files) Tj
+T*
+(└── README.md                # Project overview) Tj
+T*
+() Tj
+T*
+(================================================================================) Tj
+T*
+(END OF DOCUMENTATION) Tj
+T*
+(================================================================================) Tj
+T*
+() Tj
+T*
+(Document Version: 1.0) Tj
+T*
+(Date: March 2, 2026) Tj
+T*
+(Author: Generated for Shubham Shukla) Tj
+T*
+(Project: Gesture-Controlled Robot System \\(PG Level\\)) Tj
+T*
+() Tj
+T*
+(For questions or support, refer to the README.md file or the architecture) Tj
+T*
+(diagrams in the blueprints/ directory.) Tj
+ET
+endstream
+endobj
+
+31 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+
+xref
+0 32
+0000000000 65535 f 
+0000000009 00000 n 
+0000000059 00000 n 
+0000000206 00000 n 
+0000000334 00000 n 
+0000002832 00000 n 
+0000002960 00000 n 
+0000005783 00000 n 
+0000005911 00000 n 
+0000007917 00000 n 
+0000008046 00000 n 
+0000009820 00000 n 
+0000009950 00000 n 
+0000012064 00000 n 
+0000012194 00000 n 
+0000013839 00000 n 
+0000013969 00000 n 
+0000015682 00000 n 
+0000015812 00000 n 
+0000017470 00000 n 
+0000017600 00000 n 
+0000019818 00000 n 
+0000019948 00000 n 
+0000021327 00000 n 
+0000021457 00000 n 
+0000023310 00000 n 
+0000023440 00000 n 
+0000025210 00000 n 
+0000025340 00000 n 
+0000027577 00000 n 
+0000027707 00000 n 
+0000028452 00000 n 
+trailer
+<< /Size 32 /Root 1 0 R >>
+startxref
+28524
+%%EOF

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 750" width="1100" height="750">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1565c0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#42a5f5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff8e1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffecb3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="moduleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#37474f"/>
+    </marker>
+    <marker id="blueArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565c0"/>
+    </marker>
+    <marker id="greenArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2e7d32"/>
+    </marker>
+    <marker id="orangeArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f57c00"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1100" height="750" fill="#fafafa"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1100" height="55" fill="url(#headerGrad)"/>
+  <text x="550" y="36" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">🔧 SYSTEM INTEGRATION - main.py Orchestration</text>
+  
+  <!-- Main.py Central Hub -->
+  <g transform="translate(400, 80)">
+    <rect x="0" y="0" width="300" height="180" rx="15" fill="url(#mainGrad)" stroke="#ffc107" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="300" height="40" rx="15" fill="#ffc107"/>
+    <text x="150" y="27" font-family="Arial" font-size="16" font-weight="bold" fill="white" text-anchor="middle">🎯 main.py - ORCHESTRATOR</text>
+    
+    <text x="150" y="65" font-family="Arial" font-size="11" fill="#37474f" text-anchor="middle" font-weight="bold">GestureRobotSystem Class</text>
+    
+    <rect x="15" y="80" width="270" height="85" rx="5" fill="white" stroke="#ffc107" stroke-width="1"/>
+    <text x="150" y="100" font-family="monospace" font-size="9" fill="#37474f" text-anchor="middle">def __init__(self):</text>
+    <text x="150" y="115" font-family="monospace" font-size="9" fill="#37474f" text-anchor="middle">  self.hand_tracker = HandTracker()</text>
+    <text x="150" y="130" font-family="monospace" font-size="9" fill="#37474f" text-anchor="middle">  self.model = GestureTransformer()</text>
+    <text x="150" y="145" font-family="monospace" font-size="9" fill="#37474f" text-anchor="middle">  self.nlp = GestureNLP()</text>
+    <text x="150" y="160" font-family="monospace" font-size="9" fill="#37474f" text-anchor="middle">  self.blockchain = BlockchainBridge()</text>
+  </g>
+  
+  <!-- Module 1: Hand Tracker -->
+  <g transform="translate(50, 120)">
+    <rect x="0" y="0" width="180" height="100" rx="10" fill="url(#moduleGrad)" stroke="#1565c0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="30" rx="10" fill="#1565c0"/>
+    <text x="90" y="21" font-family="Arial" font-size="11" font-weight="bold" fill="white" text-anchor="middle">✋ hand_tracker.py</text>
+    
+    <text x="90" y="50" font-family="Arial" font-size="9" fill="#1565c0" text-anchor="middle" font-weight="bold">HandTracker Class</text>
+    <text x="90" y="65" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• MediaPipe Hands</text>
+    <text x="90" y="78" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• 21 Landmarks (X,Y,Z)</text>
+    <text x="90" y="91" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Normalization</text>
+  </g>
+  
+  <!-- Arrow from Hand Tracker to Main -->
+  <line x1="235" y1="170" x2="395" y2="170" stroke="#1565c0" stroke-width="2" marker-end="url(#blueArrow)"/>
+  <text x="315" y="160" font-family="Arial" font-size="8" fill="#1565c0" text-anchor="middle">landmarks</text>
+  
+  <!-- Module 2: Transformer Model -->
+  <g transform="translate(50, 280)">
+    <rect x="0" y="0" width="180" height="100" rx="10" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="30" rx="10" fill="#7b1fa2"/>
+    <text x="90" y="21" font-family="Arial" font-size="11" font-weight="bold" fill="white" text-anchor="middle">🧠 transformer_model.py</text>
+    
+    <text x="90" y="50" font-family="Arial" font-size="9" fill="#7b1fa2" text-anchor="middle" font-weight="bold">GestureTransformer</text>
+    <text x="90" y="65" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Multi-Head Attention</text>
+    <text x="90" y="78" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Sequence Processing</text>
+    <text x="90" y="91" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Gesture Classification</text>
+  </g>
+  
+  <!-- Arrow from Transformer to Main -->
+  <path d="M 235 330 L 300 330 L 300 200 L 395 200" stroke="#7b1fa2" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="267" y="265" font-family="Arial" font-size="8" fill="#7b1fa2" text-anchor="middle">gesture_class</text>
+  
+  <!-- Module 3: NLP -->
+  <g transform="translate(870, 120)">
+    <rect x="0" y="0" width="180" height="100" rx="10" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="30" rx="10" fill="#388e3c"/>
+    <text x="90" y="21" font-family="Arial" font-size="11" font-weight="bold" fill="white" text-anchor="middle">🗣️ gesture_nlp.py</text>
+    
+    <text x="90" y="50" font-family="Arial" font-size="9" fill="#388e3c" text-anchor="middle" font-weight="bold">GestureNLP Class</text>
+    <text x="90" y="65" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• SpaCy Parser</text>
+    <text x="90" y="78" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Intent Mapping</text>
+    <text x="90" y="91" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Command Generation</text>
+  </g>
+  
+  <!-- Arrow from Main to NLP -->
+  <line x1="705" y1="170" x2="865" y2="170" stroke="#388e3c" stroke-width="2" marker-end="url(#greenArrow)"/>
+  <text x="785" y="160" font-family="Arial" font-size="8" fill="#388e3c" text-anchor="middle">gesture</text>
+  
+  <!-- Module 4: Blockchain -->
+  <g transform="translate(870, 280)">
+    <rect x="0" y="0" width="180" height="100" rx="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="30" rx="10" fill="#f57c00"/>
+    <text x="90" y="21" font-family="Arial" font-size="11" font-weight="bold" fill="white" text-anchor="middle">🔗 blockchain_bridge.py</text>
+    
+    <text x="90" y="50" font-family="Arial" font-size="9" fill="#f57c00" text-anchor="middle" font-weight="bold">BlockchainBridge</text>
+    <text x="90" y="65" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Web3.py Connection</text>
+    <text x="90" y="78" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Command Logging</text>
+    <text x="90" y="91" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Audit Trail</text>
+  </g>
+  
+  <!-- Arrow from Main to Blockchain -->
+  <path d="M 705 200 L 800 200 L 800 330 L 865 330" stroke="#f57c00" stroke-width="2" fill="none" marker-end="url(#orangeArrow)"/>
+  <text x="833" y="265" font-family="Arial" font-size="8" fill="#f57c00" text-anchor="middle">command</text>
+  
+  <!-- Module 5: Webots Controller -->
+  <g transform="translate(460, 320)">
+    <rect x="0" y="0" width="180" height="100" rx="10" fill="#fce4ec" stroke="#c2185b" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="30" rx="10" fill="#c2185b"/>
+    <text x="90" y="21" font-family="Arial" font-size="11" font-weight="bold" fill="white" text-anchor="middle">🤖 webots_controller.py</text>
+    
+    <text x="90" y="50" font-family="Arial" font-size="9" fill="#c2185b" text-anchor="middle" font-weight="bold">WebotsController</text>
+    <text x="90" y="65" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• TurtleBot3 Control</text>
+    <text x="90" y="78" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Motor Commands</text>
+    <text x="90" y="91" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">• Simulation Interface</text>
+  </g>
+  
+  <!-- Arrow from Main to Webots -->
+  <line x1="550" y1="265" x2="550" y2="315" stroke="#c2185b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="580" y="290" font-family="Arial" font-size="8" fill="#c2185b" text-anchor="middle">execute</text>
+  
+  <!-- Main Loop Flow -->
+  <g transform="translate(50, 440)">
+    <rect x="0" y="0" width="1000" height="150" rx="10" fill="#eceff1" stroke="#607d8b" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1000" height="35" rx="10" fill="#607d8b"/>
+    <text x="500" y="24" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">🔄 MAIN PROCESSING LOOP - run() Method</text>
+    
+    <!-- Step 1 -->
+    <rect x="20" y="50" width="140" height="80" rx="8" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+    <text x="90" y="70" font-family="Arial" font-size="10" fill="#1565c0" text-anchor="middle" font-weight="bold">1️⃣ CAPTURE</text>
+    <text x="90" y="88" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Read webcam frame</text>
+    <text x="90" y="102" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Extract landmarks</text>
+    <text x="90" y="116" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Add to buffer</text>
+    
+    <!-- Arrow -->
+    <line x1="165" y1="90" x2="195" y2="90" stroke="#37474f" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 2 -->
+    <rect x="200" y="50" width="140" height="80" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+    <text x="270" y="70" font-family="Arial" font-size="10" fill="#7b1fa2" text-anchor="middle" font-weight="bold">2️⃣ PREDICT</text>
+    <text x="270" y="88" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Buffer full (60 frames)</text>
+    <text x="270" y="102" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Run Transformer</text>
+    <text x="270" y="116" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Get gesture class</text>
+    
+    <!-- Arrow -->
+    <line x1="345" y1="90" x2="375" y2="90" stroke="#37474f" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 3 -->
+    <rect x="380" y="50" width="140" height="80" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+    <text x="450" y="70" font-family="Arial" font-size="10" fill="#388e3c" text-anchor="middle" font-weight="bold">3️⃣ INTERPRET</text>
+    <text x="450" y="88" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">NLP processing</text>
+    <text x="450" y="102" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Generate command</text>
+    <text x="450" y="116" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">{action, speed, dir}</text>
+    
+    <!-- Arrow -->
+    <line x1="525" y1="90" x2="555" y2="90" stroke="#37474f" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 4 -->
+    <rect x="560" y="50" width="140" height="80" rx="8" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="630" y="70" font-family="Arial" font-size="10" fill="#f57c00" text-anchor="middle" font-weight="bold">4️⃣ LOG</text>
+    <text x="630" y="88" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Hash command</text>
+    <text x="630" y="102" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Send to blockchain</text>
+    <text x="630" y="116" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Audit trail ✓</text>
+    
+    <!-- Arrow -->
+    <line x1="705" y1="90" x2="735" y2="90" stroke="#37474f" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 5 -->
+    <rect x="740" y="50" width="140" height="80" rx="8" fill="#fce4ec" stroke="#c2185b" stroke-width="2"/>
+    <text x="810" y="70" font-family="Arial" font-size="10" fill="#c2185b" text-anchor="middle" font-weight="bold">5️⃣ EXECUTE</text>
+    <text x="810" y="88" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Send to Webots</text>
+    <text x="810" y="102" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Motor control</text>
+    <text x="810" y="116" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">Robot moves! 🤖</text>
+    
+    <!-- Loop back arrow -->
+    <path d="M 885 90 Q 920 90 920 140 Q 920 145 500 145 Q 80 145 80 90 Q 80 45 90 50" stroke="#9e9e9e" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowhead)"/>
+    <text x="500" y="140" font-family="Arial" font-size="9" fill="#757575" text-anchor="middle">Loop @ 30 FPS</text>
+  </g>
+  
+  <!-- File Structure -->
+  <g transform="translate(50, 610)">
+    <rect x="0" y="0" width="480" height="110" rx="10" fill="#fff8e1" stroke="#ffc107" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="480" height="30" rx="10" fill="#ffc107"/>
+    <text x="240" y="21" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">📁 PROJECT STRUCTURE</text>
+    
+    <text x="20" y="50" font-family="monospace" font-size="9" fill="#37474f">gesture_robot_project/</text>
+    <text x="30" y="65" font-family="monospace" font-size="9" fill="#37474f">├── src/</text>
+    <text x="40" y="80" font-family="monospace" font-size="9" fill="#666">│   ├── main.py, hand_tracker.py, transformer_model.py</text>
+    <text x="40" y="95" font-family="monospace" font-size="9" fill="#666">│   ├── gesture_nlp.py, blockchain_bridge.py, webots_controller.py</text>
+    
+    <text x="260" y="50" font-family="monospace" font-size="9" fill="#37474f">├── contracts/CommandLogger.sol</text>
+    <text x="260" y="65" font-family="monospace" font-size="9" fill="#37474f">├── notebooks/train_transformer.ipynb</text>
+    <text x="260" y="80" font-family="monospace" font-size="9" fill="#37474f">├── blueprints/*.svg</text>
+    <text x="260" y="95" font-family="monospace" font-size="9" fill="#37474f">└── README.md</text>
+  </g>
+  
+  <!-- Run Command -->
+  <g transform="translate(550, 610)">
+    <rect x="0" y="0" width="500" height="110" rx="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="500" height="30" rx="10" fill="#4caf50"/>
+    <text x="250" y="21" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">▶️ HOW TO RUN</text>
+    
+    <text x="20" y="50" font-family="monospace" font-size="10" fill="#37474f"># 1. Start Ganache (blockchain)</text>
+    <text x="20" y="65" font-family="monospace" font-size="10" fill="#2e7d32">$ ganache-cli</text>
+    
+    <text x="20" y="85" font-family="monospace" font-size="10" fill="#37474f"># 2. Start Webots with TurtleBot3 world</text>
+    
+    <text x="260" y="50" font-family="monospace" font-size="10" fill="#37474f"># 3. Run the main system</text>
+    <text x="260" y="65" font-family="monospace" font-size="10" fill="#2e7d32">$ python src/main.py</text>
+    
+    <text x="260" y="85" font-family="monospace" font-size="10" fill="#37474f"># 4. Show hand gestures to webcam!</text>
+    <text x="260" y="100" font-family="Arial" font-size="9" fill="#666">✋ forward | ✊ stop | 👈 left | 👉 right</text>
+  </g>
+  
+  <!-- Footer -->
+  <rect x="0" y="720" width="1100" height="30" fill="#1565c0"/>
+  <text x="550" y="740" font-family="Arial" font-size="10" fill="#bbdefb" text-anchor="middle">System Integration: main.py orchestrates HandTracker → Transformer → NLP → Blockchain → Webots | Real-time @ 30 FPS | © 2026</text>
+</svg>

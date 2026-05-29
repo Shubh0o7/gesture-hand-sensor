@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Logs & local artifacts
+*.log
+gesture_robot.log
+data/command_log.json
+
+# Models (large binaries — train locally or use releases)
+models/*.pth
+models/*.pt
+models/*.onnx
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Stray artifacts
+-p/
