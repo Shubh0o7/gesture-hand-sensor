@@ -11,10 +11,12 @@ venv/
 gesture_robot.log
 data/command_log.json
 
-# Models (large binaries — train locally or use releases)
+# Models (large binaries — run scripts/setup.py to download)
 models/*.pth
 models/*.pt
 models/*.onnx
+models/*.task
+!models/.gitkeep
 
 # OS / IDE
 .DS_Store

@@ -237,6 +237,7 @@ class GestureRobotPipeline:
         self.config = config or PipelineConfig()
         self.is_running = False
         self.frame_buffer = []  # Buffer of landmark sequences
+        self._last_display_frame = None
         self.last_prediction_time = 0
         self.last_gesture = 'idle'
         self.gesture_history = []
@@ -269,9 +270,9 @@ class GestureRobotPipeline:
                     detection_confidence=self.config.detection_confidence,
                     tracking_confidence=self.config.tracking_confidence
                 )
-                logger.info("✓ Phase 1: Hand Tracker initialized")
+                logger.info("[OK] Phase 1: Hand Tracker initialized")
             except Exception as e:
-                logger.error(f"✗ Phase 1: Hand Tracker failed: {e}")
+                logger.error(f"[FAIL] Phase 1: Hand Tracker failed: {e}")
         
         # Phase 2: Gesture Predictor
         self.predictor = None
@@ -282,14 +283,14 @@ class GestureRobotPipeline:
                         model_path=str(self.config.model_path),
                         gesture_labels=self.config.gesture_labels
                     )
-                    logger.info("✓ Phase 2: Transformer Model loaded")
+                    logger.info("[OK] Phase 2: Transformer Model loaded")
                 else:
                     logger.warning(
-                        f"✗ Phase 2: Model not found at {self.config.model_path}. "
-                        "Run training first (--mode train)"
+                        f"[SKIP] Phase 2: Model not found at {self.config.model_path}. "
+                        "Using gesture heuristics until you train (--mode train)"
                     )
             except Exception as e:
-                logger.error(f"✗ Phase 2: Transformer failed: {e}")
+                logger.error(f"[FAIL] Phase 2: Transformer failed: {e}")
         
         # Phase 3: NLP Parser
         self.nlp_parser = None
@@ -298,9 +299,9 @@ class GestureRobotPipeline:
             try:
                 self.nlp_parser = GestureNLPParser()
                 self.command_mapper = GestureToCommandMapper()
-                logger.info("✓ Phase 3: NLP Parser initialized")
+                logger.info("[OK] Phase 3: NLP Parser initialized")
             except Exception as e:
-                logger.error(f"✗ Phase 3: NLP Parser failed: {e}")
+                logger.error(f"[FAIL] Phase 3: NLP Parser failed: {e}")
         
         # Phase 4: Blockchain
         self.blockchain = None
@@ -309,12 +310,12 @@ class GestureRobotPipeline:
                 bc_config = BlockchainConfig(ganache_url=self.config.ganache_url)
                 self.blockchain = BlockchainBridge(bc_config)
                 if self.blockchain.is_connected():
-                    logger.info("✓ Phase 4: Blockchain connected")
+                    logger.info("[OK] Phase 4: Blockchain connected")
                 else:
-                    logger.warning("✗ Phase 4: Blockchain not connected (Ganache not running?)")
+                    logger.warning("[SKIP] Phase 4: Blockchain not connected (Ganache optional)")
                     self.blockchain = None
             except Exception as e:
-                logger.warning(f"✗ Phase 4: Blockchain failed: {e}")
+                logger.warning(f"[SKIP] Phase 4: Blockchain failed: {e}")
                 self.blockchain = None
         
         # Phase 5: Webots Controller
@@ -329,9 +330,9 @@ class GestureRobotPipeline:
                 if self.blockchain:
                     self.webots_bridge.set_blockchain_bridge(self.blockchain)
                 
-                logger.info("✓ Phase 5: Webots Controller initialized")
+                logger.info("[OK] Phase 5: Webots Controller initialized")
             except Exception as e:
-                logger.error(f"✗ Phase 5: Webots Controller failed: {e}")
+                logger.error(f"[FAIL] Phase 5: Webots Controller failed: {e}")
     
     def _print_status(self):
         """Print pipeline component status."""
@@ -345,7 +346,7 @@ class GestureRobotPipeline:
         
         logger.info("\nPipeline Status:")
         for name, available in components:
-            status = "✓ READY" if available else "✗ UNAVAILABLE"
+            status = "[OK] READY" if available else "[--] UNAVAILABLE"
             logger.info(f"  {status} | {name}")
         logger.info("")
     
@@ -365,14 +366,18 @@ class GestureRobotPipeline:
         
         # Phase 1: Extract hand landmarks
         landmarks = None
+        display_frame = frame
         if self.hand_tracker:
             try:
                 result = self.hand_tracker.process(frame)
+                display_frame = result.get('annotated_frame', frame)
                 if result.get('landmarks'):
                     landmarks = result['landmarks'][0]
-                    frame = result.get('annotated_frame', frame)
             except Exception as e:
                 logger.debug(f"Hand tracking error: {e}")
+        
+        # Store annotated frame for the webcam loop
+        self._last_display_frame = display_frame
         
         if landmarks is None:
             return None
@@ -595,12 +600,13 @@ class GestureRobotPipeline:
                 
                 # Process through pipeline
                 command = self.process_frame(frame)
+                display = self._last_display_frame if self._last_display_frame is not None else frame
                 
                 # Draw UI overlay
-                self._draw_overlay(frame, command)
+                self._draw_overlay(display, command)
                 
                 # Show frame
-                cv2.imshow('Gesture Robot Control', frame)
+                cv2.imshow('Gesture Robot Control', display)
                 
                 # Handle keyboard input
                 key = cv2.waitKey(1) & 0xFF

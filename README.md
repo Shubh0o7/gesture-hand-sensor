@@ -363,20 +363,33 @@ controller.run()  # Starts the full pipeline
 
 ---
 
+## 🚀 Quick Start (run in 2 minutes)
+
+**Windows:** double-click `run.bat setup`, then `run.bat hand` or `run.bat inference`
+
+```bash
+cd gesture-hand-sensor
+python scripts/setup.py      # install deps + download hand model
+python run.py demo           # simulated pipeline (no webcam)
+python run.py hand           # hand sensor webcam demo
+python run.py inference      # webcam gesture control (heuristics if no trained model)
+```
+
+> **Note:** MediaPipe 0.10.30+ uses the Tasks API. The hand model (`models/hand_landmarker.task`) is downloaded automatically on first run.
+
 ## 🚀 Installation
 
 ### Prerequisites
-- Python 3.10 or higher
+- Python 3.10 or higher (3.13 supported)
 - Webcam
-- [Ganache](https://trufflesuite.com/ganache/) (for blockchain)
-- [Webots](https://cyberbotics.com/) (for simulation)
+- [Ganache](https://trufflesuite.com/ganache/) (optional, for blockchain)
+- [Webots](https://cyberbotics.com/) (optional, for simulation)
 
 ### Step 1: Clone & Setup
 
 ```bash
-cd gesture_robot_project
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
+cd gesture-hand-sensor
+python scripts/setup.py
 ```
 
 ### Step 2: Install Dependencies
