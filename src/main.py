@@ -673,9 +673,9 @@ class GestureRobotPipeline:
         print("   Buffering 30 frames per gesture sequence\n")
         
         for i, (gesture, confidence) in enumerate(demo_gestures, 1):
-            print(f"\n{'─'*50}")
+            print(f"\n{'-'*50}")
             print(f"  Gesture {i}/{len(demo_gestures)}")
-            print(f"{'─'*50}")
+            print(f"{'-'*50}")
             
             # Phase 1
             print("  [Phase 1] Landmarks captured: 21 points x 30 frames")
